@@ -7,7 +7,8 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@startup-edge/schema": "workspace:*"
+    "@startup-edge/schema": "workspace:*",
+    "neo4j-driver": "^6.0.1"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
