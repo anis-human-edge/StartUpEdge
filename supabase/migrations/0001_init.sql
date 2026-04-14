@@ -2,8 +2,8 @@
 -- All tables from DATA_MODEL.md with RLS enabled
 
 -- Enable required extensions
-create extension if not exists "pgvector" with schema extensions;
-create extension if not exists "pg_cron" with schema pg_catalog;
+create extension if not exists "vector" with schema extensions;
+-- pg_cron is enabled via the Supabase dashboard, not via migration
 
 -- ============================================================
 -- users (extends Supabase auth.users)
@@ -54,14 +54,14 @@ create table public.vault_entries (
   user_id uuid not null references public.users(id) on delete cascade,
   source_id uuid not null references public.raw_sources(id) on delete cascade,
   chunk_text text not null,
-  embedding vector(1536),
+  embedding extensions.vector(1536),
   metadata jsonb not null default '{}',
   created_at timestamptz not null default now(),
   deleted_at timestamptz
 );
 
 create index vault_entries_embedding_idx on public.vault_entries
-  using ivfflat (embedding vector_cosine_ops);
+  using ivfflat (embedding extensions.vector_cosine_ops);
 
 alter table public.vault_entries enable row level security;
 
