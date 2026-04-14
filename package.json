@@ -1,0 +1,27 @@
+{
+  "name": "startup-edge",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.27.0",
+  "scripts": {
+    "typecheck": "tsc --build",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "build": "pnpm --filter @startup-edge/web build",
+    "dev": "pnpm --filter @startup-edge/web dev"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.0",
+    "neverthrow": "^8.2.0",
+    "pino": "^10.3.1",
+    "prettier": "^3.8.2",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.58.2",
+    "vitest": "^4.1.4",
+    "zod": "^4.3.6"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/schema" },
+    { "path": "packages/llm" },
+    { "path": "packages/graph" },
+    { "path": "packages/db" },
+    { "path": "packages/agents" },
+    { "path": "apps/api" }
+  ]
+}
